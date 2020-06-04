@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:coronaapp/domain/country_domain.dart';
 import 'package:coronaapp/domain/summary_response.dart';
-import 'package:coronaapp/widgets/data_item.dart';
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -99,6 +98,8 @@ class _Colombia_PageState extends State<Colombia_Page> {
                                       iconData: Icons.sentiment_very_satisfied),
                                 ],
                               );
+                            } else {
+                              return Center(child: CircularProgressIndicator());
                             }
                           }))
                 ],

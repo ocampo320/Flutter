@@ -70,8 +70,8 @@ class _ApiPageState extends State<ApiPage> {
                                     child: DataItem(
                                       title: 'Confirmados en el Mundo',
                                       number: getGlobalData(snapshot.data)
-                                              .totalConfirmed
-                                              .toString() ??
+                                              ?.totalConfirmed
+                                              ?.toString() ??
                                           '',
                                       colorNumber: Colors.red,
                                     ),
@@ -80,8 +80,8 @@ class _ApiPageState extends State<ApiPage> {
                                     child: DataItem(
                                       title: 'Muertos en el Mundo',
                                       number: getGlobalData(snapshot.data)
-                                              .totalDeaths
-                                              .toString() ??
+                                              ?.totalDeaths
+                                              ?.toString() ??
                                           '',
                                       colorNumber: Colors.red,
                                     ),
@@ -90,8 +90,8 @@ class _ApiPageState extends State<ApiPage> {
                                     child: DataItem(
                                       title: 'Recuperados en el Mundo',
                                       number: getGlobalData(snapshot.data)
-                                              .newRecovered
-                                              .toString() ??
+                                              ?.newRecovered
+                                              ?.toString() ??
                                           '',
                                       colorNumber: Colors.green,
                                     ),
@@ -108,6 +108,8 @@ class _ApiPageState extends State<ApiPage> {
                               });
                             },
                           );
+                        } else {
+                          return CircularProgressIndicator();
                         }
                       },
                     ),
@@ -189,6 +191,8 @@ class _ApiPageState extends State<ApiPage> {
                     ),
                   ),
                 );
+              } else {
+                return Center(child: CircularProgressIndicator());
               }
             })
       ],
